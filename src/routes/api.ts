@@ -28,7 +28,7 @@ function crud(ctrl: Ctrl, guards: express.RequestHandler[] = [authenticate]) {
 // auth
 router.post("/auth/register", authController.register);
 router.post("/auth/login", authController.login);
-router.get("/auth/me", authenticate, authController.me);
+router.get("/auth/:id", authenticate, authController.me);
 
 // master data → admin only
 const adminOnly = [authenticate, authorize("admin")];
